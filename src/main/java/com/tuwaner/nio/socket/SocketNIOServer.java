@@ -72,8 +72,7 @@ public class SocketNIOServer {
                     SelectionKey key = iter.next();
                     if (key.isAcceptable()) {
                         acceptHandle(key);
-                    }
-                    if (key.isReadable()) {
+                    }else if (key.isReadable()) {
                         readHandle(key);
                     }
                     iter.remove();
