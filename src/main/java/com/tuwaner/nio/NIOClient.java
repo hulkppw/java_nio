@@ -7,7 +7,7 @@ import java.nio.channels.SocketChannel;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by wanglingyun on 2017/2/26.
+ * Created on 2017/2/26.
  */
 public class NIOClient {
 
@@ -48,8 +48,8 @@ public class NIOClient {
         }
     }
 
-    public static void main(String[] args){
-//        for (())
+    public static void main(String[] args) {
+        //        for (())
         client();
     }
 }

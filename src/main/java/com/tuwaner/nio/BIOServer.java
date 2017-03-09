@@ -7,7 +7,7 @@ import java.net.Socket;
 import java.net.SocketAddress;
 
 /**
- * Created by wanglingyun on 2017/2/26.
+ * Created on 2017/2/26.
  */
 public class BIOServer {
     public static void server() {
@@ -45,7 +45,7 @@ public class BIOServer {
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         server();
     }
 }

@@ -10,7 +10,7 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 
 /**
- * Created by wanglingyun on 2017/2/26.
+ * Created on 2017/2/26.
  */
 public class NIOServer {
     private static final int BUF_SIZE = 1024;

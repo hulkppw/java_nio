@@ -3,10 +3,9 @@ package com.tuwaner.nio;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-import java.nio.channels.SocketChannel;
 
 /**
- * Created by wanglingyun on 2017/2/26.
+ * Created on 2017/2/26.
  */
 public class NIOTest {
 
