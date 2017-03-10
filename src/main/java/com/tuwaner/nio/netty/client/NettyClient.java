@@ -26,17 +26,18 @@ public class NettyClient {
     public void start() throws InterruptedException {
         EventLoopGroup group = new NioEventLoopGroup();
         try {
-            Bootstrap bootstrap = new Bootstrap();
-            bootstrap.group(group)
+            Bootstrap b = new Bootstrap();
+            b.group(group)
                 .channel(NioSocketChannel.class)
                 .remoteAddress(new InetSocketAddress(host, port))
                 .handler(new ChannelInitializer<SocketChannel>() {
+                    @Override
                     public void initChannel(SocketChannel socketChannel) throws Exception {
                         socketChannel.pipeline().addLast(new NettyClientHandler());
                     }
                 });
-            ChannelFuture future = bootstrap.connect().sync();
-            future.channel().closeFuture().sync();
+            ChannelFuture f = b.connect().sync();
+            f.channel().closeFuture().sync();
         } finally {
             group.shutdownGracefully().sync();
         }

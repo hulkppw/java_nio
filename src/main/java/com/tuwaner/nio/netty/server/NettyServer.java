@@ -25,6 +25,7 @@ public class NettyServer {
             ServerBootstrap serverBootstrap = new ServerBootstrap();
             serverBootstrap.group(group).channel(NioServerSocketChannel.class).localAddress(port)
                 .childHandler(new ChannelInitializer<SocketChannel>() {
+                    @Override
                     public void initChannel(SocketChannel channel) throws Exception {
                         channel.pipeline().addLast(new NettyServerHandler());
                     }

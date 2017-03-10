@@ -11,18 +11,22 @@ import io.netty.util.CharsetUtil;
 /**
  * Created by wanglingyun on 2017/3/9.
  */
-@ChannelHandler.Sharable public class NettyClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf)
+@ChannelHandler.Sharable
+public class NettyClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
+    @Override
+    public void channelRead0(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf)
         throws Exception {
         System.out
             .println("Client received: " + ByteBufUtil.hexDump(byteBuf.readBytes(byteBuf.readableBytes())));
     }
 
-    @Override public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.write(Unpooled.copiedBuffer("Netty rocks!", CharsetUtil.UTF_8));
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        ctx.writeAndFlush(Unpooled.copiedBuffer("Netty rocks!", CharsetUtil.UTF_8));
     }
 
-    @Override public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
         ctx.close();
     }
