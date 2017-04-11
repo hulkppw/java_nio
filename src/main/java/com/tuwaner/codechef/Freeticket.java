@@ -18,7 +18,6 @@ public class Freeticket {
         InputStreamReader inputStreamReader = new InputStreamReader(System.in);
         BufferedReader buf = new BufferedReader(inputStreamReader);
         String str = buf.readLine();
-
         c = Integer.parseInt(str.split(" ")[0]);
         f = Integer.parseInt(str.split(" ")[1]);
         int[][] a = new int[c][c];
